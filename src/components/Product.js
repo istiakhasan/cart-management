@@ -1,13 +1,13 @@
 import { useGetAllProductsQuery } from '@/redux/api/productApi';
 import React from 'react';
 
-const ExclusiveItem = () => {
+const Product = ({product}) => {
     return (
         <div className="exclusive-item exclusive-item-three text-center mb-50">
             <div className="exclusive-item-thumb">
                 <a href="productDetails.html">
-                    <img src="https://themebeyond.com/html/venam/img/product/t_exclusive_product01.jpg" alt="" />
-                    <img className="overlay-product-thumb" src="https://themebeyond.com/html/venam/img/product/td_product_img01.jpg" alt="" />
+                    <img src={product?.image} alt="" />
+                    <img className="overlay-product-thumb" src={product?.image} alt="" />
                 </a>
                 <ul className="action">
                     <li className='cursor-pointer'><a><i className="fa-solid fa-shuffle"></i></a></li>
@@ -16,10 +16,10 @@ const ExclusiveItem = () => {
                 </ul>
             </div>
             <div className="exclusive-item-content">
-                <h5 className="my-2"><a href="productDetails.html">Fashion Tops Juniors</a></h5>
+                <h5 className="my-2"><a href="productDetails.html">$ {product?.name?.length<30?product?.name:`${product?.name?.slice(0,30)}...`}</a></h5>
                 <div className="exclusive--item--price mb-2">
-                    <del className="old-price text-secondary">$69.00</del>
-                    <span className="new-price cm_color">$58.00</span>
+                    <del className="old-price text-gray-500">${product?.previous_price || "0.00"}</del>
+                    <span className="new-price cm_color">${product?.price}</span>
                 </div>
                 <div className="rating">
                     <i className="fa-solid fa-star cm_color"></i>
@@ -33,4 +33,4 @@ const ExclusiveItem = () => {
     );
 }
 
-export default ExclusiveItem;
+export default Product;

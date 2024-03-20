@@ -3,7 +3,7 @@ const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAllProducts: build.query({
       query: (query) => ({
-        url: `/posts`,
+        url: `/api/v1/product/all-products`,
         method: "GET",
         params: { ...query }
       }),
