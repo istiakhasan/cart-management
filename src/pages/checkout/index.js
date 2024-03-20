@@ -1,25 +1,35 @@
-import { decrementQuantity, incrementQuantity, removeToCart } from "@/redux/slice/cartSlice";
-import { useRouter } from "next/router";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import MainLayout from '@/components/layout/MainLayout';
+import { decrementQuantity, incrementQuantity } from '@/redux/slice/cartSlice';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
-const CartDrawer = () => {
+const Index = () => {
     const cartData = useSelector((state) => state?.cartSlice);
     const dispatch=useDispatch()
-    const router=useRouter()
-  return (
-    <div className="drawer drawer-end">
-      <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-side z-20">
-        <label
-          htmlFor="my-drawer-4"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
-        <ul className="menu p-6 w-80 min-h-full bg-base-200 text-base-content">
-             {
-               cartData?.cart?.length<=0?<><p>Cart is empty</p></>:<>
-               {
+    if(cartData?.cart?.length<=0){
+        return <>
+        <h1>Cart is empty :)</h1>
+        </>
+    }
+
+
+    const handlePurchase=()=>{
+      const payload={
+        customerId:"65a78ab032af7c59746ba859",
+        products:cartData?.cart,
+        paymentMethod:"ssl-commerce",
+        totalPrice:20,
+        address:"abc",
+        shipping:cartData?.shipping
+    }
+    axios.post(`https://spart-spirit-shop-backend.vercel.app/api/v1/order/create`,payload)
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err))
+
+    }
+    return (
+        <div className='container lg:mx-auto px-3'>
+                {
                 cartData?.cart?.map((item,i)=>(
                     <div key={item?._id} className="flex justify-between items-center gap-[10px] mb-[10px]">
                     <img 
@@ -40,6 +50,7 @@ const CartDrawer = () => {
                   </div>
                 ))
             }
+             <div className="h-[1px] bg-gray-600"></div>
              <div className="flex justify-between items-center">
             <p>Quantity</p>
             <p>{cartData?.cart?.reduce((a,b)=>a+b.purchaseQuantity,0)}</p>
@@ -52,20 +63,18 @@ const CartDrawer = () => {
             <p>Shipping Price</p>
             <p>${cartData?.shipping}</p>
          </div>
-         <div className="h-[1px] bg-gray-600"></div>
+        
          <div className="flex justify-between items-center">
             <strong>Grand Total</strong>
             <strong>${cartData?.total+cartData?.shipping}</strong>
          </div>
-         <button onClick={()=>router.push('/checkout')} className="bg-[#C0330C] text-white text-[12px] uppercase py-2 rounded-[5px] mt-3">Checkout</button>
-               </>
-             }
-        </ul>
-
-         
-      </div>
-    </div>
-  );
+         <button onClick={handlePurchase} className='bg-[#4144fa] text-white py-2 px-[100px] block ml-auto'>Purchase</button>
+        </div>
+    );
 };
 
-export default CartDrawer;
+export default Index;
+
+Index.getLayout = function getLayout(page) {
+    return <MainLayout>{page}</MainLayout>;
+  };

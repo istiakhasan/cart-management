@@ -2,8 +2,8 @@ import React from "react";
 
 const ImageWideget = () => {
   return (
-    <div class="widget">
-      <div class="shop-widget-banner special-offer-banner">
+    <div className="widget">
+      <div className="shop-widget-banner special-offer-banner">
         <a href="#">
           <img 
             className="w-[100%] max-h-[420px]"

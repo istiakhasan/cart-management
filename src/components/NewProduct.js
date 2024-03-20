@@ -3,9 +3,9 @@ import NewProductCard from './NewProductCard';
 
 const NewProduct = () => {
     return (
-        <div class="widget shop-widget mb-4">
-        <div class="shop-widget-title">
-            <h6 class="title">NEW PRODUCT</h6>
+        <div className="widget shop-widget mb-4">
+        <div className="shop-widget-title">
+            <h6 className="title">NEW PRODUCT</h6>
         </div>
         {
             [...Array(4).keys()].map(item=>(

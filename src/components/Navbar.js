@@ -35,7 +35,7 @@ const Navbar = () => {
       </li>
       <li>
         <label htmlFor="my-drawer-4">
-          <i class="fa-solid fa-cart-shopping text-[#EE611C] text-[18px] cursor-pointer"></i>
+          <i className="fa-solid fa-cart-shopping text-[#EE611C] text-[18px] cursor-pointer"></i>
           <div className="badge badge-secondary bg-[#DC3545] badge-xs">
             {cartData?.cart?.length < 9
               ? `${cartData?.cart?.length}`

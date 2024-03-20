@@ -3,18 +3,18 @@ import React from "react";
 
 const FilterOption = () => {
   return (
-    <div class="widget shop-widget mb-4">
-      <div class="shop-widget-title">
-        <h6 class="title">Filter Option</h6>
+    <div className="widget shop-widget mb-4">
+      <div className="shop-widget-title">
+        <h6 className="title">Filter Option</h6>
       </div>
       {/* filter by size */}
-      <div class="shop-sidebar-size">
-        <div class="shop-widget-title mt-3">
-          <h6 class="title">Size</h6>
+      <div className="shop-sidebar-size">
+        <div className="shop-widget-title mt-3">
+          <h6 className="title">Size</h6>
         </div>
-        <div class="shop-size-list">
+        <div className="shop-size-list">
           <ul className="flex items-center flex-wrap">
-            <li class="active">
+            <li className="active">
               <Link href="#">S</Link>
             </li>
             <li>
@@ -31,11 +31,11 @@ const FilterOption = () => {
       </div>
 
       {/* filter by color */}
-      <div class="shop-sidebar-size mt-5">
-        <div class="shop-widget-title mt-3">
-          <h6 class="title">Color</h6>
+      <div className="shop-sidebar-size mt-5">
+        <div className="shop-widget-title mt-3">
+          <h6 className="title">Color</h6>
         </div>
-        <div class="shop-size-list">
+        <div className="shop-size-list">
           <ul className="flex items-center flex-wrap">
             <li>
               <span className="h-[30px] w-[30px] rounded-full bg-[#555c82]"></span>
