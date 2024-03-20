@@ -1,5 +1,5 @@
 # Super Shop Cart Management Task
-
+Live-Link: [https://cart-management-bay.vercel.app/shop](https://cart-management-bay.vercel.app/shop)
 ## Overview
 
 The Product List Page showcases a curated selection of products available for purchase on our e-commerce platform. Users can easily browse through various categories, filter products based on their preferences, and view essential details such as product name, price, and availability. With an intuitive interface designed for seamless navigation, customers can explore our diverse range of offerings, make informed purchase decisions, and add desired items to their shopping cart for a hassle-free shopping experience.
@@ -22,6 +22,7 @@ The Product List Page showcases a curated selection of products available for pu
 - Clean and understndable code 
 - Filter By Created Time 
 - Simple Pagination
+- ssl-commerze payment getway
 - Simple Authentication
 
 ## Getting Started

@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 const ProductList = ({ data }) => {
     const [productList, setProductList] = useState([]);
     const router = useRouter();
-    console.log(router.query);
     useEffect(() => {
         if (data?.error) {
         } else {
@@ -37,16 +36,16 @@ const ProductList = ({ data }) => {
 
                     {/* simple pagination  */}
                     <div className="col-span-3 my-5 flex justify-center h-[fitContent] ">
-                        <div class="join ">
+                        <div className="join ">
                             <button
                                 onClick={() => handleChangeThePage(1)}
-                                class="join-item btn btn-sm"
+                                className="join-item btn btn-sm"
                             >
                                 1
                             </button>
                             <button
                                 onClick={() => handleChangeThePage(2)}
-                                class={`join-item btn btn-sm ${router?.query?.page === 2 ? "btn-active" : ""
+                                className={`join-item btn btn-sm ${router?.query?.page === 2 ? "btn-active" : ""
                                     }`}
                             >
                                 2

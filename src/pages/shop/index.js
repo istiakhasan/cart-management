@@ -22,7 +22,6 @@ export async function getServerSideProps({query}) {
     const page=query.page || 1 
     const sortBy=query.sortBy || 'createdAt' 
     const sortOrder=query.sortOrder || 'asc' 
-    console.log(query.page,query);
   let productData=null
   const res = await fetch(`https://spart-spirit-shop-backend.vercel.app/api/v1/product/all-products?page=${page}&sortBy=${sortBy}&sortOrder=${sortOrder}`)
    productData = await res.json()
