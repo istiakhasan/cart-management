@@ -36,16 +36,28 @@ const Index = () => {
             paymentMethod: "ssl-commerce",
             totalPrice: 20,
             address: {
-                _id: "65fb0cd8cc3cf456fe79be61",
-            },
+                "_id": "65bf26d86c8d73b1a41d3ce5",
+                "fulName": "Istiak hasan",
+                "phone": "01873997166",
+                "province": "asdf",
+                "city": "asdfasf",
+                "area": "asdf",
+                "address": "asdf",
+                "defaultDeliveryAddress": true,
+                "userId": "65a78ab032af7c59746ba859",
+                "createdAt": "2024-02-04T05:55:36.378Z",
+                "updatedAt": "2024-02-04T05:55:36.378Z",
+                "__v": 0,
+                "id": "65bf26d86c8d73b1a41d3ce5"
+              },
             shipping: cartData?.shipping
         };
 
         axios.post(`https://spart-spirit-shop-backend.vercel.app/api/v1/order/create`, payload)
             .then(data => {
-                console.log(data);
-                // Optionally, you can navigate to a success page after purchase
-                // router.push('/success');
+                if(data?.data?.data?.url){
+                    window.location.replace(data?.data?.data?.url)
+                }
             })
             .catch(err => console.log(err));
     };

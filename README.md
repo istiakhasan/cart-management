@@ -21,6 +21,8 @@ The Product List Page showcases a curated selection of products available for pu
 - Component Base project 
 - Clean and understndable code 
 - Filter By Created Time 
+- Simple Pagination
+- Simple Authentication
 
 ## Getting Started
 
