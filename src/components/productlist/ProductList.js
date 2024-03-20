@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 
 const ProductList = ({ data }) => {
   const [productList, setProductList] = useState([]);
-
   const router = useRouter();
   console.log(router.query);
   useEffect(() => {
@@ -57,6 +56,35 @@ const ProductList = ({ data }) => {
         <div>
           <ProductCategories />
           <NewProduct />
+          <div className="widget shop-widget mb-4">
+      <div className="shop-widget-title mb-2">
+        <h6 className="title">Sort Product</h6>
+      </div>
+      {/* filter by size */}
+      <div className="shop-sidebar-size">
+
+        <div className="shop-size-list">
+        <select  onChange={(e)=>{
+        const path = router.pathname;
+        const query = router.query;
+        query.sortBy = 'createdAt';
+        query.sortOrder = e.target.value;
+        router.push({
+          pathname: path,
+          query: query,
+        });
+      }} className="select-sm select select-primary w-full border-1 border-gray-500 ">
+  <option disabled selected>SORT</option>
+  <option value={"asc"}>ASC</option>
+  <option value={"desc"}>DESC</option>
+
+</select>
+        </div>
+      </div>
+
+
+      {/* filter by Price */}
+    </div>
           <FilterOption />
           <ImageWideget />
         </div>

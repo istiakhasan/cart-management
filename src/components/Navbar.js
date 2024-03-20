@@ -2,10 +2,11 @@ import Link from "next/link";
 import React from "react";
 import { useSelector } from "react-redux";
 import CartDrawer from "./CartDrawer";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const cartData = useSelector((state) => state?.cartSlice);
-
+  const roter=useRouter()
   const MenuLink = (
     <>
       <li>
@@ -29,9 +30,13 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link href={"/"} className="uppercase">
+       {
+        !!localStorage.getItem('login') ? <a onClick={()=>{
+        localStorage.removeItem('login')
+        roter.replace('/')
+       }}>Logout</a>: <Link href={"/login"} className="uppercase">
           Login
-        </Link>
+        </Link>}
       </li>
       <li>
         <label htmlFor="my-drawer-4">
