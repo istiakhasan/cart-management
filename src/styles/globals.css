@@ -214,3 +214,75 @@
   font-weight: 600;
   line-height: 1;
 }
+
+
+/* filter option */
+.shop-size-list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 5px;
+}
+.shop-size-list ul li a {
+  display: block;
+  width: 36px;
+  height: 34px;
+  line-height: 30px;
+  text-align: center;
+  border: 3px solid #ebebeb;
+  font-size: 14px;
+  color: #696868;
+  text-decoration: none;
+}
+.shop-size-list ul li.active {
+  border: 2px solid #ee611c;
+}
+
+
+
+/* widget offer */
+.special-offer-banner a, .deal-of-day-banner a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.special-offer-banner a::before, .deal-of-day-banner a::before {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 42556, 255, 0)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  -ms-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+.special-offer-banner:hover a::before, .deal-of-day-banner:hover a::before {
+  -webkit-animation: shine 1s;
+  animation: shine 1s;
+}
+.special-offer-banner a::before, .deal-of-day-banner a::before {
+  position: absolute;
+  top: 0;
+  /* left: 0%; */
+  left: -80%;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 42556, 255, 0)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  -ms-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}

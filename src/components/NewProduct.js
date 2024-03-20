@@ -9,7 +9,6 @@ const NewProduct = () => {
         </div>
         {
             [...Array(4).keys()].map(item=>(
-
                 <NewProductCard key={item} />
             ))
         }

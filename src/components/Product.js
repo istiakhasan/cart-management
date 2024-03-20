@@ -1,3 +1,4 @@
+import { useGetAllProductsQuery } from '@/redux/api/productApi';
 import React from 'react';
 
 const ExclusiveItem = () => {
@@ -9,9 +10,9 @@ const ExclusiveItem = () => {
                     <img className="overlay-product-thumb" src="https://themebeyond.com/html/venam/img/product/td_product_img01.jpg" alt="" />
                 </a>
                 <ul className="action">
-                    <li><a href="#"><i className="fa-solid fa-shuffle"></i></a></li>
-                    <li><a href="#"><i className="fa-solid fa-cart-shopping"></i></a></li>
-                    <li><a href="#"><i className="fa-regular fa-eye"></i></a></li>
+                    <li className='cursor-pointer'><a><i className="fa-solid fa-shuffle"></i></a></li>
+                    <li className='cursor-pointer' title='Add To Cart'><a><i className="fa-solid fa-cart-shopping"></i></a></li>
+                    <li className='cursor-pointer'><a><i className="fa-regular fa-eye"></i></a></li>
                 </ul>
             </div>
             <div className="exclusive-item-content">

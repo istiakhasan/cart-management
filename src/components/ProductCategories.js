@@ -1,4 +1,3 @@
-// components/ProductCategories.jsx
 import Link from 'next/link';
 
 const ProductCategories = () => {

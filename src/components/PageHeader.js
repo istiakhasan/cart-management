@@ -6,7 +6,7 @@ const PageHeader = () => {
         <h2>SMART SHOP</h2>
         <p>
           Home <span class="dot mx-2"></span>
-          <span class="cm_color_login font-bold">Shop Right Sidebar</span>
+          <span class="cm_color_login font-bold">Shop</span>
         </p>
       </section>
   );
