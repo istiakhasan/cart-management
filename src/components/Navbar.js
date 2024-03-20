@@ -1,12 +1,24 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CartDrawer from "./CartDrawer";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
   const cartData = useSelector((state) => state?.cartSlice);
-  const roter=useRouter()
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loginStatus = localStorage.getItem('login');
+    setIsLoggedIn(!!loginStatus);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('login');
+    router.replace('/');
+  };
+
   const MenuLink = (
     <>
       <li>
@@ -30,13 +42,13 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-       {
-        !!localStorage.getItem('login') ? <a onClick={()=>{
-        localStorage.removeItem('login')
-        roter.replace('/')
-       }}>Logout</a>: <Link href={"/login"} className="uppercase">
-          Login
-        </Link>}
+        {isLoggedIn ? (
+          <a onClick={handleLogout}>Logout</a>
+        ) : (
+          <Link href={"/login"} className="uppercase">
+            Login
+          </Link>
+        )}
       </li>
       <li>
         <label htmlFor="my-drawer-4">
@@ -50,10 +62,10 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div className="bg-[#083DA0] sticky top-0 z-[2]">
-    
-    <CartDrawer />
+      <CartDrawer />
       <div className="container mx-auto ">
         <div className="navbar ">
           <div className="navbar-start">

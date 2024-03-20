@@ -1,25 +1,31 @@
 import MainLayout from '@/components/layout/MainLayout';
-import { decrementQuantity, incrementQuantity } from '@/redux/slice/cartSlice';
+import { decrementQuantity, incrementQuantity, removeToCart } from '@/redux/slice/cartSlice';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const Index = () => {
     const router = useRouter();
     const cartData = useSelector((state) => state?.cartSlice);
     const dispatch = useDispatch();
 
-    if (!localStorage.getItem('login')) {
-        // Redirect to the login page
-        router.replace('/login');
-        return null; // Return null or a loading indicator until the redirect happens
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !localStorage.getItem('login')) {
+            router.replace('/login');
+        }
+    }, []); // Empty dependency array to run only once on component mount
+
+    if (!cartData) {
+        // Handle loading state, assuming cartData might be null initially
+        return <div>Loading...</div>;
     }
 
     if (cartData?.cart?.length <= 0) {
         return (
-            <>
+            <div className='min-h-[100vh] flex items-center justify-center'>
                 <h1>Cart is empty :)</h1>
-            </>
+            </div>
         );
     }
 
@@ -39,13 +45,13 @@ const Index = () => {
             .then(data => {
                 console.log(data);
                 // Optionally, you can navigate to a success page after purchase
-                router.push('/success');
+                // router.push('/success');
             })
             .catch(err => console.log(err));
     };
 
     return (
-        <div className='container lg:mx-auto px-3'>
+        <div className='container lg:mx-auto px-3 min-h-[100vh]'>
             {cartData?.cart?.map((item, i) => (
                 <div key={item?._id} className="flex justify-between items-center gap-[10px] mb-[10px]">
                     <img
@@ -82,7 +88,7 @@ const Index = () => {
                 <strong>Grand Total</strong>
                 <strong>${cartData?.total + cartData?.shipping}</strong>
             </div>
-            <button onClick={handlePurchase} className='bg-[#4144fa] text-white py-2 px-[100px] block ml-auto'>Purchase</button>
+            <button onClick={handlePurchase} className='bg-[#083DA0] text-white py-2 px-[100px] block ml-auto'>Purchase</button>
         </div>
     );
 };
