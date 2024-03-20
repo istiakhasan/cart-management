@@ -2,32 +2,118 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+/* common page header  */
+.common_page_header {
+  background: #f1efee;
+  min-height: 150px;
+}
+.common_page_header h2 {
+  font-size: 2rem;
+  color: #1e1e1e;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.common_page_header p {
+  background: #ffffff;
+  padding: 4px 30px;
+  border-radius: 8px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  color: gray;
+}
+.common_page_header .dot {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  background: gray;
+  margin-bottom: 0;
+  border-radius: 50%;
+}
+.cm_color_login {
+  color: #1849a7;
+}
+/* ============================ */
+.exclusive-item-thumb {
+  height: 350px;
+  /* overflow: hidden; */
+  position: relative;
+}
+.exclusive-item-thumb img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+}
+.exclusive-item-thumb img:last-child {
+  opacity: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.exclusive-item-thumb img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+}
+.exclusive-item-three .action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  gap: 2px;
+  left: 0;
+  bottom: 20px;
+  padding: 15px 20px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0px 4px 21px 0px rgba(117, 114, 114, 0.19) !important;
+  margin-bottom: 0;
+  opacity: 0;
+}
+.exclusive-item-three .action li {
+  list-style: none;
+}
+.exclusive-item-three .action li a {
+  display: block;
+  width: 56px;
+  height: 42px;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 1px 7px 0px rgba(117, 114, 114, 0.18);
+  line-height: 42px;
+  font-size: 20px;
+  color: #2b2b2b;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.exclusive-item-thumb:hover > a img:last-child {
+  opacity: 1;
+  transition: 0.4s;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.exclusive-item:hover > .exclusive-item-thumb .action {
+  opacity: 1;
+  transition: 0.4s linear;
+  bottom: 0;
+}
+.exclusive-item .exclusive-item-content h5 a {
+  color: #252525;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+.exclusive-item .exclusive-item-content .exclusive--item--price {
+  font-size: 15px;
+  font-weight: bold;
+}
+.cm_color {
+  color: #ee611c;
 }
