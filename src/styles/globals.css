@@ -287,3 +287,28 @@
   }
 }
 
+/* loader css */
+.customo_body_laoder {
+  position: fixed;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.customo_body_laoder .body_loader_item {
+  background: white;
+  max-width: 100%;
+}
+.customo_body_laoder .body_loader_item.abc {
+  max-width: 0 !important;
+  transition: 0.6s;
+}
+.customo_body_laoder.abc {
+  z-index: -3000 !important;
+  opacity: 0;
+}
+

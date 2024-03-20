@@ -1,20 +1,16 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import ExclusiveItem from "@/components/Product";
-import PageHeader from "@/components/PageHeader";
-import ProductCategories from "@/components/ProductCategories";
-import NewProduct from "@/components/NewProduct";
-import FilterOption from "@/components/FilterOption";
-import ImageWideget from "@/components/ImageWideget";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ["latin"] });
+const Home = () => {
+  const router = useRouter();
 
-export default function Home() {
-  return (
-    <main>
-      <PageHeader />
-    </main>
-  );
-}
+  useEffect(() => {
+    // Perform the redirect on the client side
+    router.push('/shop');
+  }, []);
+
+  // This component doesn't need to render anything since it's performing a redirect
+  return null;
+};
+
+export default Home;
