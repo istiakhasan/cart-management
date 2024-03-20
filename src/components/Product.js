@@ -1,7 +1,9 @@
 import { useGetAllProductsQuery } from '@/redux/api/productApi';
+import { addToCart } from '@/redux/slice/cartSlice';
 import React from 'react';
-
+import { useDispatch } from 'react-redux';
 const Product = ({product}) => {
+    const dispatch=useDispatch()
     return (
         <div className="exclusive-item exclusive-item-three text-center mb-50">
             <div className="exclusive-item-thumb">
@@ -11,7 +13,7 @@ const Product = ({product}) => {
                 </a>
                 <ul className="action">
                     <li className='cursor-pointer'><a><i className="fa-solid fa-shuffle"></i></a></li>
-                    <li className='cursor-pointer' title='Add To Cart'><a><i className="fa-solid fa-cart-shopping"></i></a></li>
+                    <li onClick={()=>dispatch(addToCart(product))} className='cursor-pointer' title='Add To Cart'><a><i className="fa-solid fa-cart-shopping"></i></a></li>
                     <li className='cursor-pointer'><a><i className="fa-regular fa-eye"></i></a></li>
                 </ul>
             </div>

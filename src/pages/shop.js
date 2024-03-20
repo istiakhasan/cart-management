@@ -8,6 +8,7 @@ import Product from '@/components/Product';
 import ProductCategories from '@/components/ProductCategories';
 import { useGetAllProductsQuery } from '@/redux/api/productApi';
 import Head from 'next/head';
+import { Toaster } from 'react-hot-toast';
 const Index = () => {
     const {data}=useGetAllProductsQuery(undefined)
     const productData=data?.data
@@ -33,6 +34,7 @@ const Index = () => {
             <ImageWideget />
           </div>
         </div>
+        <Toaster />
       </div>
       </>
     );
