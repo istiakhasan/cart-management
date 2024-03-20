@@ -7,7 +7,7 @@ const Product = ({product}) => {
     return (
         <div className="exclusive-item exclusive-item-three text-center mb-50">
             <div className="exclusive-item-thumb">
-                <a href="productDetails.html">
+                <a>
                     <img src={product?.image} alt="" />
                     <img className="overlay-product-thumb" src={product?.image} alt="" />
                 </a>
@@ -18,7 +18,7 @@ const Product = ({product}) => {
                 </ul>
             </div>
             <div className="exclusive-item-content">
-                <h5 className="my-2"><a href="productDetails.html">$ {product?.name?.length<30?product?.name:`${product?.name?.slice(0,30)}...`}</a></h5>
+                <h5 className="my-2"><a>$ {product?.name?.length<30?product?.name:`${product?.name?.slice(0,30)}...`}</a></h5>
                 <div className="exclusive--item--price mb-2">
                     <del className="old-price text-gray-500">${product?.previous_price || "0.00"}</del>
                     <span className="new-price cm_color">${product?.price}</span>
