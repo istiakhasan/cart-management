@@ -1,4 +1,4 @@
-# Super Shop Cart Management Task
+# E-commerce Product Listing with Cart Management
 Live-Link: [https://cart-management-bay.vercel.app/shop](https://cart-management-bay.vercel.app/shop)
 ## Overview
 
