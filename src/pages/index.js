@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import ExclusiveItem from "@/components/Product";
 import PageHeader from "@/components/PageHeader";
+import ProductCategories from "@/components/ProductCategories";
+import NewProduct from "@/components/NewProduct";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,10 @@ export default function Home() {
         ))
       }
      </div>
-     <div></div>
+     <div>
+      <ProductCategories />
+      <NewProduct />
+     </div>
        </div>
      </div>
     </main>
